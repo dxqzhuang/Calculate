@@ -46,6 +46,7 @@ void Polynomial::reduce()
     for(int i=0; i<poly.size(); ++i){       //from the beginning of vector
         if(poly[i].getCoeff()==0){          //check the coeff of ith term if==0
             poly.erase(poly.begin()+i);     //if==0, remove the [0+i]th term
+            --i
         }
     }
 //    supposed to clear 0 coeff terms
