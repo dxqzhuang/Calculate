@@ -282,9 +282,7 @@ Polynomial operator+(const Polynomial& a, const Polynomial &b)
         ans.poly.push_back(a.poly[i]);
     for(size_t i=0; i<b.poly.size(); i++)
         ans.poly.push_back(b.poly[i]);
-    cout << endl << "for loops finished" << endl;
-    ans.combineLikeTerms();
-    cout << "\n like terms are combined" << endl;
+    ans.reduce();
     return ans;
 }
 
@@ -316,6 +314,7 @@ Polynomial operator-(const Polynomial& other)
     {
         ans.poly.push_back(Term(-other.poly[i]));
     }
+    ans.reduce();
     return ans;
 }
 

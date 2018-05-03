@@ -8,7 +8,7 @@
 
 using namespace std;
 
-enum ERRORS{LIST_FULL};
+enum ERRORS{LIST_FULL, FUNCTION_NOT_FOUND, CANNOT_OPEN_FILE};
 
 class Expression
 {
@@ -16,13 +16,16 @@ public:
     Expression();
     ~Expression();
 
+    //getter/setter
+    void set(char& which, const Polynomial& what);
+
     //file io
     void load(string fileName);
     void save(string fileName);
 
     //overloaded operators
-    Expression operator <<(string& expr);    //insertion operator
-    Polynomial operator [](int which);   //return an expression
+    Expression operator<<(string& expr);    //insertion operator
+    Polynomial operator[](char& which);   //return an expression
 
 private:
     vector<Polynomial> list;
